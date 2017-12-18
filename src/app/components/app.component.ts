@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { SearchInputComponent } from './search-input.component'
+import { SearchApiService } from '../search-api.service'
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,5 @@ import { SearchInputComponent } from './search-input.component'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app'
-  data = ''
-
-  constructor () {
-  }
+  constructor (private search: SearchApiService) {}
 }
