@@ -3,7 +3,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http'
-import { MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/material'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './components/app.component'
@@ -25,11 +24,7 @@ import { SearchApiService } from './search-api.service'
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule,
-
-    MatButtonModule,
-    MatCheckboxModule,
-    MatInputModule
+    HttpModule
   ],
   providers: [ SearchApiService ],
   bootstrap: [ AppComponent ]

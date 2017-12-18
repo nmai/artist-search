@@ -7,7 +7,7 @@ import { SearchApiService } from '../search-api.service'
 })
 
 export class SearchInputComponent {
-  constructor(private search: SearchApiService) { }
+  constructor(private search: SearchApiService) {}
 
   doSearch(term: string) {
     this.search.searchArtists(term)
