@@ -3,10 +3,11 @@ import { Http } from '@angular/http'
 import { SearchItem } from './interfaces/search-item'
 import { MetricItem } from './interfaces/metric-item'
 import { TimestampedData } from './interfaces/timestamped-data'
+import {
+  generateMetricsUrl,
+  generateSearchUrl
+} from './common/search-endpoints.utility'
 
-// @TODO move such definitions to a separate constants file at least
-const generateSearchUrl = name => `http://onesolstice.api3.nextbigsound.com/artists/search.json?q=${name}`
-const generateMetricsUrl = id => `http://onesolstice.api3.nextbigsound.com/metrics/artist/${id}.json`
 
 @Injectable() 
 export class SearchApiService {
