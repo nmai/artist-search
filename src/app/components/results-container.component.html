@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let result of results"> 
-    <item [data]="list"></item>
+  <li *ngFor="let result of list | async"> 
+    <item [data]="result"></item>
   </li>
 </ul>

@@ -2,6 +2,9 @@ import { Action } from '@ngrx/store'
 import { Observable } from "rxjs/Observable"
 import { Operator } from "rxjs/Operator"
 
+import { MetricsWrapper } from './interfaces/metrics-wrapper'
+import { SearchItem } from './interfaces/search-item'
+
 export const PERFORM_SEARCH     = '[Search API] Perform Search'
 export const FETCH_METRICS      = '[Search API] Fetch Metrics'
 export const SEARCH_COMPLETE    = '[Search API] Search Complete'
@@ -31,7 +34,7 @@ export class FetchMetricsAction  implements Action {
 export class SearchCompleteAction  implements Action {
   readonly type = SEARCH_COMPLETE
 
-  constructor(public payload: any) {}
+  constructor(public payload: Array<SearchItem>) {}
 }
 
 export class SearchFailedAction  implements Action {
@@ -39,13 +42,13 @@ export class SearchFailedAction  implements Action {
 }
 
 export class MetricsReceivedAction  implements Action {
-  readonly type = SEARCH_COMPLETE
+  readonly type = METRICS_RECEIVED
 
-  constructor(public payload: any) {}
+  constructor(public payload: MetricsWrapper) {}
 }
 
 export class MetricsFailedAction  implements Action {
-  readonly type = SEARCH_FAILED
+  readonly type = METRICS_FAILED
 }
 
 export type Actions =

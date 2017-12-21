@@ -41,12 +41,17 @@ export class SearchApiEffects {
     )
 
   @Effect() metrics: Observable<Action> = this.actions.ofType(FETCH_METRICS)
-    .mergeMap((action: FetchMetricsAction) =>
-      this.http.get(generateMetricsUrl(action.payload))
-        .map(data => 
-          new MetricsReceivedAction(transformMetricsResults(data.json())))
+    .mergeMap((action: FetchMetricsAction) => {
+      let id = action.payload
+      
+      return this.http.get(generateMetricsUrl(id))
+        .map(data =>
+          new MetricsReceivedAction({
+            artistId: id,
+            data: transformMetricsResults(data.json())
+          }))
         .catch(() => of({ type: METRICS_FAILED }))
-    )
+    })
 
   constructor(
     private http: Http,

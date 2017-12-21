@@ -13,24 +13,7 @@ import { ItemComponent } from './components/item.component'
 import { SearchInputComponent } from './components/search-input.component'
 import { SearchApiService } from './search-api.service'
 import { SearchApiEffects } from './search-api.effects'
-
-// ***** @TODO REMOVE ***** //
-import { ActionReducer, Action } from '@ngrx/store'
-import { SearchCompleteAction, SEARCH_COMPLETE } from './search-api.actions'
-import { SearchItem } from './interfaces/search-item'
-
-function resultsReducer(state: Array<SearchItem> = [], action: SearchCompleteAction) {
-  console.log(action)
-  switch (action.type) {
-    case SEARCH_COMPLETE:
-      return action.payload
-
-    default:
-      return state
-  }
-}
-
-// ************************ //
+import { responseReducer } from './reducers/response.reducer'
 
 
 @NgModule({
@@ -46,7 +29,7 @@ function resultsReducer(state: Array<SearchItem> = [], action: SearchCompleteAct
     AppRoutingModule,
     FormsModule,
     HttpModule,
-    StoreModule.forRoot({ searchResults: resultsReducer }),
+    StoreModule.forRoot({ searchResults: responseReducer }),
     EffectsModule.forRoot([SearchApiEffects])
   ],
   providers: [ SearchApiService ],
