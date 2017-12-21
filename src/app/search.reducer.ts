@@ -1,11 +1,11 @@
-import { SearchItem } from '../interfaces/search-item'
+import { SearchItem } from './interfaces/search-item'
 import { 
   SEARCH_COMPLETE,
   SearchCompleteAction,
   METRICS_RECEIVED,
   MetricsReceivedAction,
   Actions
-} from '../search-api.actions'
+} from './search.actions'
 
 export function responseReducer(state: Array<SearchItem> = [], action: Actions) {
   switch (action.type) {
@@ -22,7 +22,6 @@ export function responseReducer(state: Array<SearchItem> = [], action: Actions) 
         }
       }
 
-      console.log('METRICS EVENT', updatedState)
       return updatedState
 
     default:

@@ -11,11 +11,9 @@ import { AppState } from '../interfaces/app-state'
 
 export class ResultsContainerComponent {
 
-  @Input() results: Array<SearchItem>
-
-  list: Observable<Array<SearchItem>>
+  results: Observable<Array<SearchItem>>
 
   constructor(private store: Store<AppState>) {
-    this.list = store.select('searchResults')
+    this.results = store.select('searchResults')
   }
 }

@@ -13,12 +13,6 @@ export const METRICS_RECEIVED   = '[Search API] Metrics Complete'
 export const METRICS_FAILED     = '[Search API] Metrics Failed'
 
 
-/**
- * @TODO
- * - Define a specific type for the SearchCompleteAction payload
- */
-
-
 export class PerformSearchAction implements Action {
   readonly type = PERFORM_SEARCH
 

@@ -20,7 +20,7 @@ import {
   MetricsReceivedAction,
   METRICS_FAILED,
   MetricsFailedAction
-} from './search-api.actions'
+} from './search.actions'
 import { 
   generateMetricsUrl,
   generateSearchUrl
@@ -30,7 +30,7 @@ import { transformSearchResults, transformMetricsResults } from './common/data-t
 
 @Injectable()
 
-export class SearchApiEffects {
+export class SearchEffects {
 
   @Effect() search: Observable<Action> = this.actions.ofType(PERFORM_SEARCH)
     .mergeMap((action: PerformSearchAction) => 

@@ -3,7 +3,7 @@ import { SearchItem } from '../interfaces/search-item'
 import { MetricItem } from '../interfaces/metric-item'
 import { Store } from '@ngrx/store'
 import { AppState } from '../interfaces/app-state'
-import { FetchMetricsAction } from '../search-api.actions'
+import { FetchMetricsAction } from '../search.actions'
 
 @Component({
   selector: 'item',
