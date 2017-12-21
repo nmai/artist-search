@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core'
+import { Store } from '@ngrx/store'
+import { Observable } from 'rxjs/Observable'
 import { SearchItem } from '../interfaces/search-item'
+import { AppState } from '../interfaces/app-state'
 
 @Component({
   selector: 'results-container',
@@ -10,5 +13,9 @@ export class ResultsContainerComponent {
 
   @Input() results: Array<SearchItem>
 
-  constructor() {}
+  list: Observable<Array<SearchItem>>
+
+  constructor(private store: Store<AppState>) {
+    this.list = store.select('searchResults')
+  }
 }

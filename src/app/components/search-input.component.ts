@@ -1,5 +1,8 @@
 import { Component } from '@angular/core'
 import { SearchApiService } from '../search-api.service'
+import { Store } from '@ngrx/store'
+import { AppState } from '../interfaces/app-state'
+import { PerformSearchAction } from '../search-api.actions'
 
 @Component({
   selector: 'search-input',
@@ -7,9 +10,12 @@ import { SearchApiService } from '../search-api.service'
 })
 
 export class SearchInputComponent {
-  constructor(private search: SearchApiService) {}
+  constructor(
+    private search: SearchApiService,
+    private store: Store<AppState>
+  ) {}
 
   doSearch(term: string) {
-    this.search.searchArtists(term)
+    this.store.dispatch(new PerformSearchAction(term))
   }
 }
