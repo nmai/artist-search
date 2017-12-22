@@ -1,7 +1,21 @@
-<div (click)="itemClicked()">
-  {{ data.id }}
-  {{ data.name }}
-</div>
-<div *ngFor="let item of data.metrics">
-  {{ item }}
+
+<div class="card">
+  <div class="card-header" role="tab">
+    <h5 class="mb-0">
+      <a (click)="itemClicked()">
+        {{ data.name }}
+      </a>
+    </h5>
+  </div>
+
+  <ul *ngIf="data.metrics">
+    <li *ngFor="let item of data.metrics">
+      {{ item.Service.name }}
+      <ul>
+        <li *ngFor="let fan of item.Metric.fans">
+          {{ fan.data }} fans [{{fan.time}}]
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
